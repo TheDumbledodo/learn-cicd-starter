@@ -21,3 +21,9 @@ jobs:
 
       - name: Build the app
         run: ./scripts/buildprod.sh
+
+      - name: Fake gcloud
+        run: |
+          echo -e '#!/bin/bash\necho "fake gcloud"\nexit 0' > gcloud
+          chmod +x gcloud
+          sudo mv gcloud /usr/local/bin/
